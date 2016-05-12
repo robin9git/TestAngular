@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+    <!-- To enable JMX Management -->
+    <jmxConfigurator />
+
+    <!-- 打印到控制台 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!-- 打印日志到文件 -->
+    <!-- 所有日志文件 -->
+    <appender name="AllLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/shiro/all/%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- Task日志文件 -->
+    <appender name="Tasklog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/shiro/task/%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 为莫个包下的所有类指定Appender 这里也可以指定类名称例如：com.mcs.task.ClassName -->
+    <!-- 
+     <logger name="cn.mcs.task" level="DEBUG" >
+         <appender-ref ref="Tasklog" />
+     </logger>
+      -->
+     <logger name="org.springframework" level="INFO" /> 
+       <logger name="org.springframework.beans" level="DEBUG" />
+
+    <!-- 常用级别：ERROR 、WARN 、INFO 、DEBUG 、TRACE -->
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <!-- <appender-ref ref="AllLog" /> -->
+      </root>
+
+
+</configuration>
