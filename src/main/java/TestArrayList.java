@@ -9,7 +9,7 @@ public class TestArrayList {
 		// TODO Auto-generated method stub
 		List<String> bb = selectFootMenuListByType();
 		System.out.println(bb.size());
-		
+		 
 	}
 
 	public static List<String> selectFootMenuListByType() {
