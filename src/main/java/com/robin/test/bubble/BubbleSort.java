@@ -10,6 +10,7 @@ public class BubbleSort {
 		boolean flag = true;
 		int m = 0;
 		int n = 0;
+		
 		for(int i=arr.length;i>1&&flag;i--){
 //			for(int i=arr.length;i>1;i--){
 			flag= false;
