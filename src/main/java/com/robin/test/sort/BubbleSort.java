@@ -1,4 +1,4 @@
-package com.robin.test.bubble;
+package com.robin.test.sort;
 
 public class BubbleSort {
 
